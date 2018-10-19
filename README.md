@@ -1,3 +1,20 @@
+# FORK CHANGES
+
+Changes the way the cli program accepts arguments,
+
+`typescript-json-schema "project/directory/**/*.ts" TYPE`
+
+Becomes
+
+`typescript-json-schema --ts "project/directory/**/*.ts" --type 'TYPE' `
+
+An example is
+
+`typescript-json-schema --ts ./tsconfig.json --type '*' `
+
+
+
+
 # typescript-json-schema
 
 [![npm version](https://img.shields.io/npm/v/typescript-json-schema.svg)](https://www.npmjs.com/package/typescript-json-schema) [![Build Status](https://travis-ci.org/YousefED/typescript-json-schema.svg?branch=master)](https://travis-ci.org/YousefED/typescript-json-schema)
@@ -23,7 +40,7 @@ In case no `tsconfig.json` is available for your project, you can directly speci
 
 * Generate schema from a typescript type: `typescript-json-schema "project/directory/**/*.ts" TYPE`
 
-The `TYPE` can either be a single, fully qualified type or `*` to generate the schema for all types. 
+The `TYPE` can either be a single, fully qualified type or `*` to generate the schema for all types.
 
 ```
 Usage: typescript-json-schema <path-to-typescript-files-or-tsconfig> <type>
@@ -169,4 +186,3 @@ Inspired and builds upon [Typson](https://github.com/lbovet/typson/), but typesc
 `npm run debug -- test/programs/type-alias-single/main.ts --aliasRefs true MyString`
 
 And connect via the debugger protocol.
-
