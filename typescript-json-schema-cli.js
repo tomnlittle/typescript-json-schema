@@ -6,7 +6,10 @@ function run() {
     var defaultArgs = typescript_json_schema_1.getDefaultArgs();
     var args = require("yargs")
         .usage(helpText)
-        .demand(2)
+        .string("type")
+        .string("ts")
+        .describe("type", "Types to generate, use * for all")
+        .describe("ts", "The tsconfig or the ts files you want to include")
         .boolean("refs").default("refs", defaultArgs.ref)
         .describe("refs", "Create shared ref definitions.")
         .boolean("aliasRefs").default("aliasRefs", defaultArgs.aliasRef)
@@ -43,8 +46,9 @@ function run() {
         .describe("rejectDateType", "Rejects Date fields in type definitions.")
         .string("id").default("id", defaultArgs.id)
         .describe("id", "ID of schema.")
+        .demandOption(["ts", "type"])
         .argv;
-    typescript_json_schema_1.exec(args._[0], args._[1], {
+    typescript_json_schema_1.exec(args.ts, args.type, {
         ref: args.refs,
         aliasRef: args.aliasRefs,
         topRef: args.topRef,

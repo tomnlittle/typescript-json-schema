@@ -1,14 +1,11 @@
 "use strict";
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
+var __assign = (this && this.__assign) || Object.assign || function(t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+        s = arguments[i];
+        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+            t[p] = s[p];
+    }
+    return t;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var glob = require("glob");
@@ -16,6 +13,10 @@ var stringify = require("json-stable-stringify");
 var path = require("path");
 var crypto_1 = require("crypto");
 var ts = require("typescript");
+var typescript_1 = require("typescript");
+exports.Program = typescript_1.Program;
+exports.CompilerOptions = typescript_1.CompilerOptions;
+exports.Symbol = typescript_1.Symbol;
 var vm = require("vm");
 var REGEX_FILE_NAME_OR_SPACE = /(\bimport\(".*?"\)|".*?")\.| /g;
 var REGEX_TSCONFIG_NAME = /^.*\.json$/;
